@@ -13687,11 +13687,11 @@ $$<p>Here, <code>nb_samples</code> is the number of samples, or number of images
 <p><strong>Question 4:</strong> Outline the steps you took to get to your final CNN architecture and your reasoning at each step.  If you chose to use the hinted architecture above, describe why you think that CNN architecture should work well for the image classification task.</p>
 <p><strong>Answer:</strong> I chose the following architecture due to the following reasons:</p>
 <ul>
-<li>Increased the number of filters in each layer so that the layer proceeding the previous layer can learn on the more on the granular features of the pixels that was fed to it.</li>
+<li>Increased the number of filters in each layer so that the layer proceeding the previous layer can learn more on the granular features of the pixels that was fed to it.</li>
 <li>Used softmax activation function for the multi class classification on the final layer.</li>
 <li>Used relu for the convolution layer so as to avoid the vanishing gradient problem.</li>
-<li>Used kernel size of 1 because it gave an accuracy of of around 7.29 percent for 5 epochs. Same architecture for kernel size 2 gave an accuracy of 2.7 percentage. It can be due to the fact that more granular features were needed to be trained for better accuracy.</li>
-<li>Used padding as <code>same</code> so that the model does not misses any of the features.</li>
+<li>Used kernel size of 1 because it gave an accuracy of of around 5.86 percent for 5 epochs. Same architecture for kernel size 2 gave an accuracy of 2.7 percent. It can be due to the fact that more granular features were needed to be trained for better accuracy.</li>
+<li>Used padding as <code>same</code> so that the model does not misses any of the pixels.</li>
 </ul>
 
 </div>
@@ -14309,7 +14309,7 @@ test_{network} = bottleneck_features['test']</code></pre>
 <ul>
 <li><p>Tried the architecture given in the last transfer learning step with VGG16. It always gave an accuracy of less than 60 percent for upto 40 epochs. May be because the dense layer was taking all the features from different nodes at once and was not able to distinguish the relation between the pixels.</p>
 </li>
-<li><p>Tried to add a convolution layer and the model gave a test accuracy of around 69% with only 20 epochs.</p>
+<li><p>Tried to add a convolution layer and the model gave a test accuracy of around 71% with only 20 epochs.</p>
 </li>
 <li><p>Added a global average pooling layer as the final model had much less parameters to train and even it gave better accuracy in comparison to adding a flatten later.</p>
 </li>
