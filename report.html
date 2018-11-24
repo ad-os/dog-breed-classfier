@@ -14307,6 +14307,10 @@ test_{network} = bottleneck_features['test']</code></pre>
 <p><strong>Question 5:</strong> Outline the steps you took to get to your final CNN architecture and your reasoning at each step.  Describe why you think the architecture is suitable for the current problem.</p>
 <p><strong>Answer:</strong> Steps followed to the architecture given below:</p>
 <ul>
+<li><p>All of the pre trained models are trained on a data set containing dog images so the bottleneck features will contain the granular features of different dogs which are not particular to any data set so transfer learning can be used here to intialize the weights of a model from a pre-trained model. Also, initial conv layer will contain similar features to the pre-trained one if trained from scratch for e.g: first conv layer may contain edges or blob of color and second may contain some shapes like circle, reactangle etc. In fact only the last conv layer contains features specific to the data on which we train. Using bottelneck features will help to train the model faster with the same accuracy if the same model was trained from scratch.</p>
+</li>
+<li><p>Used VGG19 model as the it contains more filters as compared to the VGG16 model. More filters means the conv layer will be more deep and it will contain more granular features than the VGG16 model.</p>
+</li>
 <li><p>Tried the architecture given in the last transfer learning step with VGG16. It always gave an accuracy of less than 60 percent for upto 40 epochs. May be because the dense layer was taking all the features from different nodes at once and was not able to distinguish the relation between the pixels.</p>
 </li>
 <li><p>Tried to add a convolution layer and the model gave a test accuracy of around 71% with only 20 epochs.</p>
